@@ -1,4 +1,6 @@
 const GRID = 10
+const MARGIN = 1
+let WIDTH = (window.innerWidth - 2 * GRID * MARGIN) / GRID
 const GRIDSIZE = GRID*GRID;
 
 const container = document.createElement('div');
@@ -6,7 +8,7 @@ container.setAttribute('id','container')
 
 for  (i=0;i<GRIDSIZE;i++){
     const div = document.createElement('div');
-    div.setAttribute('style','background-color:blue')
+    div.setAttribute('style',`margin:${MARGIN}px; width: ${WIDTH}px; height: ${WIDTH}px`)
     div.classList.add('gridItem')
     container.appendChild(div)
 }
@@ -15,7 +17,7 @@ document.body.appendChild(container)
 
 addEventListener("mouseover", (event) => {
     if(event.target.classList.contains('gridItem')){
-         event.target.style.backgroundColor = "red";
+         event.target.style.backgroundColor = "#222";
     }
 })
 
@@ -34,7 +36,8 @@ function refresh(SIZE) {
 
     for (i=0;i<SIZE*SIZE;i++){
         const div = document.createElement('div');
-        div.setAttribute('style','background-color:blue')
+        WIDTH = (window.innerWidth/SIZE) - 2*MARGIN
+        div.setAttribute('style',`margin:${MARGIN}px; width: ${WIDTH}px; height: ${WIDTH}px`)
         div.classList.add('gridItem')
         parent.appendChild(div)
     }
