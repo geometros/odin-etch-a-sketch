@@ -22,7 +22,7 @@ addEventListener("mouseover", (event) => {
 })
 
 const button = document.getElementById('Resize')
-button.addEventListener("click", () => {refresh(prompt('Enter grid width, for example 25 for 25 x 25 grid:'))})
+button.addEventListener("click", () => {refresh(prompt('Enter grid width, for best results choose a number between 10 and 100'))})
 
 function refresh(SIZE) {
     
